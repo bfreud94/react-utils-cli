@@ -1,0 +1,7 @@
+export interface ComponentNameProps {
+	
+}
+
+export interface ComponentNameStyles {
+
+}
