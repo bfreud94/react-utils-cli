@@ -17,8 +17,7 @@ const main = () => {
 		Object.keys(args).forEach((arg: string) => {
 			const validReplaceArg = arg === 'reactTSComponent' || arg === 'styles' || arg === 'types'
 			if (validReplaceArg) {
-				const contents = readFileSync(argReadPathMap[arg], { encoding: 'utf8', flag: 'r' })
-					.replace(/ComponentName/gi, args['reactTSComponent'])
+				const contents = argReadPathMap[arg].replace(/ComponentName/gi, args['reactTSComponent'])
 				if (!existsSync(args['fileLocation'])) {
 					mkdirSync(args['fileLocation'])
 				}

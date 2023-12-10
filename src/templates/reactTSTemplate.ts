@@ -1,3 +1,4 @@
+export default `
 import React, { FC } from 'react'
 
 const ComponentName: FC<ComponentNameProps> = () => {
@@ -9,3 +10,4 @@ const ComponentName: FC<ComponentNameProps> = () => {
 }
 
 export default ComponentName
+`
