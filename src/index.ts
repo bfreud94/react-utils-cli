@@ -12,7 +12,7 @@ const main = () => {
 	const errors = getErrors(args)
 	const reactTSComponentName = args['reactTSComponent']
 	const writePaths = getWritePathNames(reactTSComponentName, args['fileLocation'])
-	createDirectoryAndSubDirectories(args['fileLocation'])
+	createDirectoryAndSubDirectories(args['fileLocation'], args['reactTSComponent'])
 	if (errors.length === 0) {
 		Object.keys(args).forEach((arg: string) => {
 			const validReplaceArg = arg === 'reactTSComponent' || arg === 'styles' || arg === 'types'
