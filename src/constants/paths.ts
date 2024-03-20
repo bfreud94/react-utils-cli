@@ -8,8 +8,10 @@ export const argReadPathMap = {
 	'types': typesTemplate
 }
 
+const getGenericPath = (componentName: string, fileType: string, path: string) => `${path}/${componentName}/${componentName}${fileType}`
+
 export const getWritePathNames = (componentName: string, path: string) => ({
-	reactTSComponent: path + '/' + componentName + '.tsx',
-	styles: path + '/' + componentName + '.styles.ts',
-	types: path + '/' + componentName + '.types.ts',
+	reactTSComponent: getGenericPath(componentName, '.tsx', path),
+	styles: getGenericPath(componentName, '.styles.ts', path),
+	types: getGenericPath(componentName, '.types.ts', path)
 })
