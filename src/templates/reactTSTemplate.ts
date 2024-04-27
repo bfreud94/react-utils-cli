@@ -1,4 +1,4 @@
-export default `import React, { FC } from 'react'
+export default `import { FC } from 'react'
 import { ComponentNameProps } from './ComponentName.types'
 
 const ComponentName: FC<ComponentNameProps> = () => {
