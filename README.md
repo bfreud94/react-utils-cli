@@ -7,4 +7,6 @@ This package is meant to be setup as a global utility, rather than something par
 npm i -g react-utils-cli
 
 # Example Usage
+```
 react-utils --reactTSComponent=TestComponent --styles --types --fileLocation=src/path/to/component
+```
