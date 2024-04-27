@@ -1,6 +1,8 @@
 export default `import { ComponentNameStyles } from './ComponentName.types'
 
-export default (): ComponentNameStyles => ({
+const makeStyles = (): ComponentNameStyles => ({
 
 })
+
+export default makeStyles
 `
