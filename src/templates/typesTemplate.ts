@@ -1,5 +1,4 @@
-export default `
-export interface ComponentNameProps {
+export default `export interface ComponentNameProps {
 	
 }
 
