@@ -2,5 +2,6 @@ export const acceptableArguments = [
 	'fileLocation',
 	'reactTSComponent',
 	'styles',
-	'types'
+	'types',
+    'preReact18'
 ]

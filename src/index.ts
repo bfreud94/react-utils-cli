@@ -2,7 +2,7 @@
 
 import yargs from 'yargs/yargs'
 import { writeFileSync } from 'fs'
-import { argReadPathMap, getWritePathNames } from './constants/index.js'
+import { getArgReadPathMap, getWritePathNames } from './constants/index.js'
 import { createDirectoryAndSubDirectories, getArgs, getErrors } from './utils/index.js'
 
 const { argv } = yargs(process.argv)
@@ -17,6 +17,8 @@ const main = () => {
 		Object.keys(args).forEach((arg: string) => {
 			const validReplaceArg = arg === 'reactTSComponent' || arg === 'styles' || arg === 'types'
 			if (validReplaceArg) {
+                const preReact18String = args['preReact18'] ? 'React, ' : ''
+                const argReadPathMap = getArgReadPathMap(preReact18String)
 				const contents = argReadPathMap[arg].replace(/ComponentName/gi, args['reactTSComponent'])
 				writeFileSync(writePaths[arg], contents)
 			}

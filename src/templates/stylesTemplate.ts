@@ -1,4 +1,4 @@
-export default `import { ComponentNameStyles } from './ComponentName.types'
+const stylesTemplate = () => `import { ComponentNameStyles } from './ComponentName.types'
 
 const makeStyles = (): ComponentNameStyles => ({
 
@@ -6,3 +6,5 @@ const makeStyles = (): ComponentNameStyles => ({
 
 export default makeStyles
 `
+
+export default stylesTemplate
