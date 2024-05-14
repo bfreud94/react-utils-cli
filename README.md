@@ -8,7 +8,19 @@ This package is meant to be setup as a global utility, rather than something par
 npm i -g react-utils-cli
 ```
 
-# Example Usage
+# Commands
+
+## Create TS Group
 ```
-react-utils --reactTSComponent=TestComponent --styles --types --fileLocation=src/path/to/component
+react-utils createTSGroup --reactTSComponent=TestComponent --styles --types --fileLocation=src/path/to/component
+
+```
+
+# Development Scripts
+There are two scripts in this repository that link and unlink the local repository to a user's global npm.
+
+In order to run them, you must give the shell script access by running the following command:
+```
+chmod +x ./src/development-scripts/link.sh
+chmod +x ./src/development-scripts/unlink.sh
 ```
