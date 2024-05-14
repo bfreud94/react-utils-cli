@@ -1,21 +1,24 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs/yargs'
-import { getArgs, getCommand, COMMANDS } from './utils/commands.js'
+import { getArgs, getCommand } from './utils/commands.js'
 import createTSGroup from './commands/createTSGroup.js'
+import { CREATE_TS_GROUP, acceptableCommands } from './constants/commands.js'
 
 const main = () => {
     const { argv } = yargs(process.argv)
     const command = getCommand(argv)
-    const args = getArgs(argv)
+    const args = getArgs(argv, command)
 
-    const { CREATE_TS_GROUP } = COMMANDS
+    if (!acceptableCommands.includes(command)) {
+        return console.log('ERROR: Command not found')
+    }
 
     switch (command) {
         case CREATE_TS_GROUP:
             return createTSGroup(args)
         default:
-            return console.log('Command not found')
+            return console.log('ERROR: Command not found')
     }
 }
 
