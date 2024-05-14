@@ -9,3 +9,9 @@ export const getArgs = (args: Args): Args => {
 	})
 	return args
 }
+
+export const getCommand = (argv: any) => argv._[2]
+
+export const COMMANDS = {
+    CREATE_TS_GROUP: 'createTSGroup'
+}
