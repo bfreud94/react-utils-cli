@@ -6,7 +6,9 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsc",
-		"start": "npm run build && node ./dist/index.js"
+        "link": "./src/development-scripts/link.sh",
+		"start": "npm run build && node ./dist/index.js",
+        "unlink": "./src/development-scripts/unlink.sh"
 	},
 	"bin": {
 		"react-utils": "./dist/index.js"
