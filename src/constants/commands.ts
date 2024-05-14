@@ -1,4 +1,5 @@
 export const CREATE_TS_GROUP = 'createTSGroup'
+export const HELP = 'help'
 
 export const acceptableArguments = {
     [CREATE_TS_GROUP]: [
@@ -7,7 +8,8 @@ export const acceptableArguments = {
         'styles',
         'types',
         'preReact18'
-    ]
+    ],
+    [HELP]: []
 }
 
 export const acceptableCommands = Object.keys(acceptableArguments)
