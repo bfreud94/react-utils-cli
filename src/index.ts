@@ -1,33 +1,22 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs/yargs'
-import { writeFileSync } from 'fs'
-import { getArgReadPathMap, getWritePathNames } from './constants/index.js'
-import { createDirectoryAndSubDirectories, getArgs, getErrors } from './utils/index.js'
-
-const { argv } = yargs(process.argv)
-const args = getArgs(argv)
+import { getArgs, getCommand, COMMANDS } from './utils/commands.js'
+import createTSGroup from './commands/createTSGroup.js'
 
 const main = () => {
-	const errors = getErrors(args)
-	const reactTSComponentName = args['reactTSComponent']
-	const writePaths = getWritePathNames(reactTSComponentName, args['fileLocation'])
-	createDirectoryAndSubDirectories(args['fileLocation'], args['reactTSComponent'])
-	if (errors.length === 0) {
-		Object.keys(args).forEach((arg: string) => {
-			const validReplaceArg = arg === 'reactTSComponent' || arg === 'styles' || arg === 'types'
-			if (validReplaceArg) {
-                const preReact18String = args['preReact18'] ? 'React, ' : ''
-                const argReadPathMap = getArgReadPathMap(preReact18String)
-				const contents = argReadPathMap[arg].replace(/ComponentName/gi, args['reactTSComponent'])
-				writeFileSync(writePaths[arg], contents)
-			}
-		})
-	} else {
-		errors.forEach((error: string) => {
-			console.error(error)
-		})
-	}
+    const { argv } = yargs(process.argv)
+    const command = getCommand(argv)
+    const args = getArgs(argv)
+
+    const { CREATE_TS_GROUP } = COMMANDS
+
+    switch (command) {
+        case CREATE_TS_GROUP:
+            return createTSGroup(args)
+        default:
+            return console.log('Command not found')
+    }
 }
 
 main()
