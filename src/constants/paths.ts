@@ -2,11 +2,11 @@ import reactTSTemplate from '../templates/reactTSTemplate.js'
 import stylesTemplate from '../templates/stylesTemplate.js'
 import typesTemplate from '../templates/typesTemplate.js'
 
-export const argReadPathMap = {
-	'reactTSComponent': reactTSTemplate,
-	'styles': stylesTemplate,
-	'types': typesTemplate
-}
+export const getArgReadPathMap = (preReact18String: string) => ({
+	'reactTSComponent': reactTSTemplate(preReact18String),
+	'styles': stylesTemplate(),
+	'types': typesTemplate()
+})
 
 const getGenericPath = (componentName: string, fileType: string, path: string) => `${path}/${componentName}/${componentName}${fileType}`
 
